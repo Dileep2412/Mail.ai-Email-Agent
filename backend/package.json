@@ -1,0 +1,27 @@
+{
+  "name": "user-input-app",
+  "version": "1.0.0",
+  "description": "JavaScript setup for taking user input",
+  "main": "input.js",
+  "type": "module",
+  "scripts": {
+    "start": "node input.js"
+  },
+  "keywords": [
+    "input",
+    "readline",
+    "nodejs"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@langchain/mistralai": "^1.0.8",
+    "@supabase/supabase-js": "^2.107.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "langchain": "^1.4.0",
+    "nodemailer": "^8.0.7",
+    "zod": "^4.4.3"
+  }
+}
