@@ -1,23 +1,29 @@
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false,
+  auth: {
+    user: process.env.GOOGLE_USER,
+    pass: process.env.GOOGLE_APP_PASSWORD,
+  },
+});
 
 export async function sendEmail({ to, subject, html, text = "" }) {
   try {
-    const { data, error } = await resend.emails.send({
-      from: "Mail.ai <onboarding@resend.dev>",
+    const mailOptions = {
+      from: process.env.GOOGLE_USER,
       to,
       subject,
       html,
-      text,
-    });
-    
-    if (error) throw new Error(error.message);
-    
-    console.log("? Email sent via Resend");
+      text
+    };
+    const details = await transporter.sendMail(mailOptions);
+    console.log("✅ Email sent");
     return `Email sent successfully to ${to}`;
   } catch (error) {
-    console.log("? Send Mail Error:", error.message);
+    console.error("❌ Send Mail Error:", error.message);
     throw error;
   }
 }
