@@ -55,7 +55,7 @@ export default function App() {
     setLoading(true)
 
     try {
-      const res = await fetch('https://mail-ai-email-agent.onrender.com/api/chat', {
+      const res = await fetch((import.meta.env.VITE_BACKEND_URL || "http://localhost:3000") + '/api/chat', {
         method: 'POST',
         mode: 'cors',
         headers: { 'Content-Type': 'application/json' },
