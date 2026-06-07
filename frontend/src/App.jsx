@@ -57,7 +57,6 @@ export default function App() {
     try {
       const res = await fetch((import.meta.env.VITE_BACKEND_URL || "http://localhost:3000") + '/api/chat', {
         method: 'POST',
-        mode: 'cors',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: userMessage, sessionId, userId: user?.id }),
       })
