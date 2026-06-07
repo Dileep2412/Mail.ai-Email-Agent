@@ -10,7 +10,14 @@ import supabase from "./supabase.js";
 import * as z from "zod";
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: [
+    "https://mail-ai-email-agent.vercel.app",
+    "http://localhost:5173"
+  ],
+  methods: ["GET", "POST"],
+  credentials: true
+}));
 app.use(express.json());
 
 const model = new ChatMistralAI({ model: "mistral-small-latest" });
