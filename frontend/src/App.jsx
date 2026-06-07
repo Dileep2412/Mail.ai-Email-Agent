@@ -55,8 +55,9 @@ export default function App() {
     setLoading(true)
 
     try {
-      const res = await fetch('http://localhost:3000/api/chat', {
+      const res = await fetch('https://mail-ai-email-agent.onrender.com/api/chat', {
         method: 'POST',
+        mode: 'cors',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: userMessage, sessionId, userId: user?.id }),
       })
