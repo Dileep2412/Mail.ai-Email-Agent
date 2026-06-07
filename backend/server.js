@@ -11,13 +11,9 @@ import * as z from "zod";
 
 const app = express();
 app.use(cors({
-  origin: [
-    "https://mail-ai-email-agent.vercel.app",
-    "https://mail-ai-email-agent-git-master-dileep2412s-projects.vercel.app",
-    "http://localhost:5173"
-  ],
+  origin: "*",
   methods: ["GET", "POST"],
-  credentials: true
+  credentials: false
 }));
 app.use(express.json());
 
