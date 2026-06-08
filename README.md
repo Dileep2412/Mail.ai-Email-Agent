@@ -113,7 +113,7 @@ cd frontend
 npm run dev
 ```
 
-Open `http://localhost:5173` and start sending emails with AI! 🚀
+Open `http://localhost:5173` and start sending emails with AI! 
 
 ---
 
